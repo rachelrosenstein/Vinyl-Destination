@@ -1,0 +1,29 @@
+{
+  "name": "vinyl-destination",
+  "version": "1.0.0",
+  "description": "web application that allows users to search for and add albums to a digital catalogue of their music collection",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rachelrosenstein/Vinyl-Destination.git"
+  },
+  "author": "rachelrosenstein, mazzeiroman, dandandanoneil",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rachelrosenstein/Vinyl-Destination/issues"
+  },
+  "homepage": "https://github.com/rachelrosenstein/Vinyl-Destination#readme", 
+  "dependencies": {
+    "express": "^4.16.3",
+    "express-handlebars": "^3.0.0",
+    "mysql2": "^1.6.5",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "bcryptjs": "2.4.3",
+    "sequelize": "^5.8.6"
+  }
+}
