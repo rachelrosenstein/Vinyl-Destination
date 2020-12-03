@@ -1,0 +1,30 @@
+h1 {
+    font-family: 'Permanent Marker', cursive;
+    background-color: white;
+    padding-bottom: 20px;
+    text-align: center;
+    padding-top: 20px;
+    width: 100%;
+    font-size: 100px;
+  }
+
+  .container {
+      font-family: 'Syne', sans-serif;
+      width:75%;
+      padding-right:25px;
+      padding-left:25px;
+      margin-right:auto;
+      margin-left:auto;
+      padding-top: 25px;
+      padding-bottom: 25px;
+      border-style:ridge;
+      background-color: white;}
+
+      
+body {
+        background-image: url("https://image.freepik.com/free-photo/vinyl-records-yellow-background_23-2147926840.jpg"), url("https://image.freepik.com/free-photo/vinyl-records-yellow-background_23-2147926840.jpg");
+        background-repeat: no-repeat, repeat;
+        background-color:white;
+        background-attachment: fixed;
+        font-family: 'Syne', sans-serif;
+      }
