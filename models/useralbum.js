@@ -11,7 +11,8 @@ module.exports = function(sequelize, DataTypes) {
         // Marking albums as favorite isn't part of our MVP, but may be added later
         isFavorite: {
             type: DataTypes.BOOLEAN,
-            defaultValue: 0
+            allowNull: false,
+            defaultValue: false
         }*/
     });
 
