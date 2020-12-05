@@ -12,19 +12,6 @@
 </head>
 
 <body>
-    <script type="text/javascript">
-
-        function addCollection(event) {
-            var album = document.getElementById("albumInput").value
-            var text = document.createTextNode(album)
-            var newAlbum = document.createElement("li")
-            newAlbum.appendChild(text)
-            document.getElementById("albumInput").appendChild(newAlbum)
-
-        }
-        event.preventDefault()
-
-    </script>
     <nav class="navbar navbar-default">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -59,19 +46,30 @@
                         <input type="text" placeholder="Optional" id="summary" name="name">
                     </div>
 
-                    <button type="button" onClick="addCollection()" id="addCollection">Add To
+                    <button type="button" id="addCollection">Add To
                         Collection</button>
                     <a href="public/login.html"><button>Return to Login Page</button></a>
         </form>
 
-        <ol id="addCollection"></ol>
+        <ol id="result"></ol>
 
     </div>
     </div>
     <div class="divider"></div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script type="text/javascript" src="js/login.js"></script>
+    <script type="text/javascript">
+        
+        $("#addCollection").on("click", function (event) {
+            event.preventDefault()
+            
+            var album = $("#albumInput").val();
+            var newAlbum = $("<li>" + album + "</li>");
+            $("#result").append(newAlbum)
+        });
+
+    </script>
+    <!-- <script type="text/javascript" src="js/login.js"></script> -->
 
 </body>
 
