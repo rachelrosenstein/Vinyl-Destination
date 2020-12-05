@@ -28,7 +28,7 @@ module.exports = function (app) {
     });
 
     app.get("/addmanual", function (req, res) {
-        // If the user already has an account send them to the members page
+        // If the user isn't logged in, send them to the login page
         if (!req.user) {
             res.redirect("/login.html");
         }
