@@ -1,64 +1,75 @@
 h1 {
-    font-family: 'Permanent Marker', cursive;
-    background-color: white;
-    padding-bottom: 20px;
-    text-align: center;
-    padding-top: 20px;
-    width: 100%;
-    font-size: 100px;
-  }
+  font-family: 'Permanent Marker', cursive;
+  background-color: white;
+  padding-bottom: 20px;
+  text-align: center;
+  padding-top: 20px;
+  width: 100%;
+  font-size: 100px;
+}
 
-  h2 {
-    font-family: 'Permanent Marker', cursive;
-    background-color: white;
-    padding-bottom: 20px;
-    text-align: center;
-    padding-top: 20px;
-    width: 100%;
-    font-size: 30px;
-  }
+h2 {
+  font-family: 'Permanent Marker', cursive;
+  background-color: white;
+  text-align: center;
+  width: 100%;
+  font-size: 30px;
+}
+
+h4 {
+  font-family: 'Permanent Marker', cursive;
+  background-color: white;
+  font-style: italic;
+  text-align: center;
+  width: 100%;
+  font-size: 20px;
+}
 
 .container {
-      font-family: 'Syne', sans-serif;
-      width:75%;
-      padding-right:25px;
-      padding-left:25px;
-      margin-right:auto;
-      margin-left:auto;
-      padding-bottom: 10px;
-      border-style:ridge;
-      background-color: white;}
+  font-family: 'Syne', sans-serif;
+  width:75%;
+  padding:20px;
+  margin-right:auto;
+  margin-left:auto;
+  border-style:ridge;
+  background-color: white;
+}
 
-      
 body {
-        background-image: url("https://image.freepik.com/free-photo/vinyl-records-yellow-background_23-2147926840.jpg"), url("https://image.freepik.com/free-photo/vinyl-records-yellow-background_23-2147926840.jpg");
-        background-repeat: no-repeat, repeat;
-        background-color:white;
-        background-attachment: fixed;
-        font-family: 'Syne', sans-serif;
-      }
+  background-image: url("https://image.freepik.com/free-photo/vinyl-records-yellow-background_23-2147926840.jpg"), url("https://image.freepik.com/free-photo/vinyl-records-yellow-background_23-2147926840.jpg");
+  background-repeat: no-repeat, repeat;
+  background-color:white;
+  background-attachment: fixed;
+  font-family: 'Syne', sans-serif;
+}
 
-   
-      
 form.search-bar input[type=text] {
-        padding: 10px;
-        font-size: 17px;
-        border: 1px solid grey;
-        float: left;
-        width: 80%;
-        background: #f1f1f1;
-      }
-form.search-bar button {
-        float: left;
-        width: 20%;
-        padding: 10px;
-        background: #2196F3;
-        color: white;
-        font-size: 17px;
-        border: 1px solid grey;
-        border-left: none; /* Prevent double borders */
-        cursor: pointer;
-      }
- .divider {padding-top: 20px;padding-bottom: 50px;}
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid grey;
+  float: left;
+  width: 80%;
+  background: #f1f1f1;
+}
 
-.divider2 {padding-top: 20px;padding-bottom: 10px;}
+form.search-bar button {
+  float: left;
+  width: 20%;
+  padding: 10px;
+  background: #2196F3;
+  color: white;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-left: none; /* Prevent double borders */
+  cursor: pointer;
+}
+
+.divider {
+  padding-top: 20px;
+  padding-bottom: 50px;
+}
+
+.divider2 {
+  padding-top: 20px;
+  padding-bottom: 10px;
+}
