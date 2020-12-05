@@ -59,12 +59,14 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript">
-        
+
         $("#addCollection").on("click", function (event) {
             event.preventDefault()
-            
+
             var album = $("#albumInput").val();
-            var newAlbum = $("<li>" + album + "</li>");
+            var artist = $("#artist").val();
+            var summary = $("#summary").val();
+            var newAlbum = $("<li>" + album + "by" + artist + "has been added to your collection" + "</li>");
             $("#result").append(newAlbum)
         });
 
