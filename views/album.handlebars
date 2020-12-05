@@ -1,0 +1,60 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+
+            <ul>
+                {{#if Albun}}
+                <img src="{{imageURL}}" alt="{{name}}">
+                <h1> {{name}} </h1>
+                <h2> {{artist}} </h2>
+                <p> Wiki summary: {{wikiSummary}}</p>
+                <button type="button" class="btn btn-warning {{mbid}}">Stream</button>
+                <button class="favorite" data-id="{{this.id}}">Favorite!</button>
+                <button class="deleteAlbum" data-id="{{this.id}}">Delete!</button>
+                {{/if}}
+            </ul>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h2> Want to add an Album?</h2>
+            
+        </div>
+    </div>
+</div>
+
+{{!-- the code underneath will be moved to an ADD ALBUM handlebars 
+in a partials/XXX folder and with a condition it will dynamically be displayed
+if the user wants to add an album --}}
+
+{{!-- <form class="create-form">
+
+                <div class="form-group">
+                    <label for="ca">Album Name:</label>
+                    <input type="text" id="ca" name="name">
+                </div>
+
+                <div class="form-group">
+                    <label for="ca1">Artist:</label>
+                    <input type="text" id="ca1" name="artist">
+                </div>
+
+                <div class="form-group">
+                    <label for="ca2">Image URL:</label>
+                    <input type="text" id="ca2" name="imageURL">
+                </div>
+
+                <div class="form-group">
+                    <label for="ca3"> Link to Stream it:</label>
+                    <input type="text" id="ca3" name="streamURL">
+                </div>
+
+                <div class="form-group">
+                    <label for="ca4">Summary:</label>
+                    <input type="text" id="ca4" name="wikiSummary">
+                </div>
+
+
+                <button type="submit">Add Album</button>
+            </form> --}}
