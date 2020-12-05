@@ -37,8 +37,11 @@ module.exports = function(app) {
             res.json({});
         } else {
             // Look in the database for an album that already matches the mbid from the last.fm API request
-            db.Album.findOne({ where { mbid: req.body.mbid } })
-            .then(function(thisAlbum) {
+            db.Album.findOne({ 
+                where: { 
+                    mbid: req.body.mbid 
+                } 
+            }).then(function(thisAlbum) {
                 // If the album doesn't exist in the db,
                 // create an album using the data sent & add it to the user's collection
                 if (!thisAlbum) {
