@@ -16,14 +16,15 @@
   "bugs": {
     "url": "https://github.com/rachelrosenstein/Vinyl-Destination/issues"
   },
-  "homepage": "https://github.com/rachelrosenstein/Vinyl-Destination#readme", 
+  "homepage": "https://github.com/rachelrosenstein/Vinyl-Destination#readme",
   "dependencies": {
+    "bcryptjs": "2.4.3",
+    "dotenv": "^8.2.0",
     "express": "^4.16.3",
     "express-handlebars": "^3.0.0",
     "mysql2": "^1.6.5",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
-    "bcryptjs": "2.4.3",
     "sequelize": "^5.8.6"
   }
 }
