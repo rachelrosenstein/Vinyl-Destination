@@ -35,6 +35,17 @@ module.exports = function (app) {
         res.sendFile(path.join(__dirname, "../public/addManual.html"));
     });
 
+    app.get("/album/:id", function (req, res) {
+        // Look in the database for an album that matches the id passed in
+        db.Album.findOne({ 
+            where: { 
+                id: req.params.id 
+            } 
+        }).then(function(album) {
+            res.render("album", album);
+        });
+    });
+
     // Here we've add our isAuthenticated middleware to this route.
     // If a user who is not logged in tries to access this route they will be redirected to the signup page
     app.get("/myCollection", isAuthenticated, function (req, res) {
@@ -44,7 +55,6 @@ module.exports = function (app) {
             },
             include: db.Album
         }).then(function (data) {
-            console.log(data);
             res.render("collection", data);
         });
     });
