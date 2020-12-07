@@ -73,6 +73,18 @@
             $("#result").append(coverArt)
         });
 
+        function addAlbum(newAlbum) {
+            console.log(newAlbum);
+            $.post("/api/album", newAlbum)
+                .then(function () {
+                    window.location.replace("/myCollection");
+                })
+                // If there's an error, log the error
+                .catch(function (err) {
+                    console.log(err);
+                });
+        }
+
     </script>
     <!-- <script type="text/javascript" src="js/login.js"></script> -->
 </body>
