@@ -66,13 +66,15 @@
             var album = $("#albumInput").val();
             var artist = $("#artist").val();
             var summary = $("#summary").val();
+            var imageURL = $("coverArt").val();
             var newAlbum = $("<li>" + album + "by" + artist + "has been added to your collection" + "</li>");
+            var coverArt = $('<img class="img-fluid mb-3" src ="' + imageURL + '" alt="' + imageURL + ' album cover">')
             $("#result").append(newAlbum)
+            $("#result").append(coverArt)
         });
 
     </script>
     <!-- <script type="text/javascript" src="js/login.js"></script> -->
-
 </body>
 
 </html>
