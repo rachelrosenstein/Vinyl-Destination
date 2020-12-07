@@ -16,13 +16,14 @@ h1 {
     padding-top: 20px;
     width: 100%;
     font-size: 30px;
+    margin: auto;
   }
 
 .container {
       font-family: 'Syne', sans-serif;
-      width:75%;
-      padding-right:25px;
-      padding-left:25px;
+      width:60%;
+      padding-right:15px;
+      padding-left:20px;
       margin-right:auto;
       margin-left:auto;
       padding-bottom: 10px;
@@ -62,3 +63,15 @@ form.search-bar button {
  .divider {padding-top: 20px;padding-bottom: 50px;}
 
 .divider2 {padding-top: 20px;padding-bottom: 10px;}
+
+form.create-form {
+  text-align: center;
+}
+
+form.form-group {
+  text-align: center;
+}
+
+.header {
+margin: auto;  
+}
