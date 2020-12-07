@@ -23,12 +23,12 @@
     <div class="divider2"></div>
     <div class="container">
 
-        <div class="col-md-9 col-md-offset-2">
-            <h2>Or Add your music manually:</h2>
+        <div class="col-md-6 col-md-offset-3" id="header">
+            <h2>Add your music manually:</h2>
         </div>
         <form class="create-form">
             <div class="row">
-                <div class="col-sm-4 col-md-offset-2">
+                <div class="col-md-6 col-md-offset-3">
                     <div class="form-group">
                         <label for="album">Album Name:</label>
                         <input type="text" id="albumInput" name="name">
@@ -50,24 +50,26 @@
                         Collection</button>
                     <a href="public/login.html"><button>Return to Login Page</button></a>
         </form>
-
+        <div class="divider2"></div>
         <ol id="result"></ol>
 
+    </div>
     </div>
     </div>
     <div class="divider"></div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript">
-        
+
         $("#addCollection").on("click", function (event) {
             event.preventDefault()
-            
+
             var album = $("#albumInput").val();
-            var newAlbum = $("<li>" + album + "</li>");
+            var artist = $("#artist").val();
+            var summary = $("#summary").val();
+            var newAlbum = $("<li>" + album + " by " + artist + " has been added to your collection " + "</li>");
             $("#result").append(newAlbum)
         });
-
     </script>
     <!-- <script type="text/javascript" src="js/login.js"></script> -->
 

@@ -11,9 +11,12 @@ h1 {
 h2 {
   font-family: 'Permanent Marker', cursive;
   background-color: white;
+  padding-bottom: 20px;
   text-align: center;
+  padding-top: 20px;
   width: 100%;
   font-size: 30px;
+  margin: auto;
 }
 
 h4 {
@@ -27,10 +30,12 @@ h4 {
 
 .container {
   font-family: 'Syne', sans-serif;
-  width:75%;
-  padding:20px;
+  width:60%;
+  padding-right:15px;
+  padding-left:20px;
   margin-right:auto;
   margin-left:auto;
+  padding-bottom: 10px;
   border-style:ridge;
   background-color: white;
 }
@@ -72,4 +77,16 @@ form.search-bar button {
 .divider2 {
   padding-top: 20px;
   padding-bottom: 10px;
+}
+
+form.create-form {
+  text-align: center;
+}
+
+form.form-group {
+  text-align: center;
+}
+
+.header {
+margin: auto;  
 }
