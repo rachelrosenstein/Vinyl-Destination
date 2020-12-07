@@ -90,3 +90,11 @@ form.form-group {
 .header {
 margin: auto;  
 }
+
+.results {
+  height: 320px;
+}
+
+.results img {
+  width: 100%;
+}
