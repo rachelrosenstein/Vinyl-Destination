@@ -37,7 +37,7 @@ module.exports = function(sequelize, DataTypes) {
     Album.associate = function(models) {
         Album.belongsToMany(models.User, {
             through: 'UserAlbums',
-            as: 'albums',
+            as: 'users',
             foreignKey: 'albumID',
             otherKey: 'userID'
         });

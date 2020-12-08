@@ -1,6 +1,7 @@
 const path = require("path");
 const db = require("../models");
 const isAuthenticated = require("../config/middleware/isAuthenticated");
+const { REPL_MODE_SLOPPY } = require("repl");
 
 // Routes
 // =============================================================
@@ -49,14 +50,52 @@ module.exports = function (app) {
     // Here we've add our isAuthenticated middleware to this route.
     // If a user who is not logged in tries to access this route they will be redirected to the signup page
     app.get("/myCollection", isAuthenticated, function (req, res) {
-        db.UserAlbum.findAll({
+        const allAlbums = 
+        // return models.Albums
+        db.User.findAll({
             where: {
-                userID: req.user.id
+                email: req.user.email
             },
-            include: db.Album
-        }).then(function (data) {
+            // include: db.Album
+            include: [{
+                model: db.Album,
+                as: "albums",
+                required: false,
+                attributes: ["id", "name"],
+                through: {
+                    model: db.UserAlbums,
+                    as: "useralbums",
+                    attributes: ["albumID"]
+                }
+                // ,
+                // where: {allAlbums}
+            }]
+        }).
+        // return res.send({allAlbums});
+        then(function (data) {
             res.render("collection", data);
         });
     });
 
 };
+
+// module.exports = function(sequelize, DataTypes) {
+//     var UserAlbum = sequelize.define("UserAlbum", {
+//         userID: {
+//             type: DataTypes.STRING,
+//             allowNull: false
+//         },
+//         albumID: {
+//             type: DataTypes.STRING,
+//             allowNull: false
+//         }/*,
+//         // Marking albums as favorite isn't part of our MVP, but may be added later
+//         isFavorite: {
+//             type: DataTypes.BOOLEAN,
+//             allowNull: false,
+//             defaultValue: false
+//         }*/
+//     });
+
+//     return UserAlbum;
+// };
