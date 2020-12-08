@@ -78,9 +78,11 @@ $('#searchBtn').on('click', function (event) {
         $('#resultHeading').append($('<div class="col-12"><h4>Results from <a href="https://www.last.fm/home" target="blank">last.fm</a>:</h4></div>'));
 
         for (let i = 0; i < limit; i++) {
-            let thisDiv = $('<div class="col-lg-3 col-sm-4 col-xs-6"></div>');
+            let thisDiv = $('<div class="results col-lg-3 col-sm-4 col-xs-6"></div>');
             thisDiv.attr('id', 'album');
             
+            thisDiv.append($("<hr/>"))
+
             let nameDiv = $('<div><strong>' + searchResults[i].name + '</strong></div>');
             thisDiv.append(nameDiv);
 
@@ -92,8 +94,6 @@ $('#searchBtn').on('click', function (event) {
             else  albumArt.attr('src', 'https://via.placeholder.com/164x174/fee500?text=Cover%20Art%20Not%20Found');
             albumArt.click(function() { loadAlbum(searchResults[i].mbid) });
             thisDiv.append(albumArt);
-
-            thisDiv.append($("<hr/>"))
 
             $('#resultBody').append(thisDiv);
         }
@@ -122,7 +122,7 @@ function loadAlbum(mbid) {
         let artistDiv = $('<div style="font-size:20px">' + response.album.artist + '</div>');
         albumDiv.append(artistDiv);
         if (response.album.image[2]['#text']) {
-            let albumArt = $('<img class="img-fluid mb-3" src ="' + response.album.image[2]["#text"] + '" alt="' + response.album.name + ' album cover">')
+            let albumArt = $('<img class="img-fluid mb-3" src ="' + response.album.image[2]["#text"] + '" alt="' + response.album.name + ' album cover" style="width:75%">')
             albumDiv.append(albumArt);
         } else {
             let albumArt = $('<img class="img-fluid mb-3" src ="https://via.placeholder.com/164x174/fee500?text=Cover%20Art%20Not%20Found" alt="Cover Art Not Found">')
