@@ -68,10 +68,18 @@
             var artist = $("#artist").val();
             var summary = $("#summary").val();
             var imageURL = $("coverArt").val();
-            var newAlbum = $("<li>" + album + "by" + artist + "has been added to your collection" + "</li>");
+            var newRecord = $("<li>" + album + "by " + artist + " has been added to your collection" + "</li>");
             var coverArt = $('<img class="img-fluid mb-3" src ="' + imageURL + '" alt="' + imageURL + ' album cover">')
-            $("#result").append(newAlbum)
+            $("#result").append(newRecord)
             $("#result").append(coverArt)
+
+            const newAlbum = {
+                name: album,
+                artist: artist,
+                imageURL: imageURL,
+                wikiSummary: summary
+            };
+            addAlbum(newAlbum);
         });
 
         function addAlbum(newAlbum) {
@@ -85,6 +93,7 @@
                     console.log(err);
                 });
         }
+
 
     </script>
     <!-- <script type="text/javascript" src="js/login.js"></script> -->
