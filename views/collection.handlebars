@@ -1,20 +1,21 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-
             <ul>
                 <li>
-                    {{#if Albun}}
-                    {{#each Album}}
-                    <h1> {{name}} </h1>
-                    <p> {{artist}} </p>
-                    <img src="{{imageURL}}" alt="{{name}}">
-                    <button class="favorite" data-id="{{this.id}}">Favorite!</button>
-                    <button class="deleteAlbum" data-id="{{this.id}}">Delete!</button>
+                    {{#if albums}}
+                        {{#each albums}}
+                            {{#dataValues}}
+                            <h1> {{this.name}} </h1>
+                            <p> {{this.artist}} </p>
+                            <img src="{{this.imageURL}}" alt="{{this.name}}">
+                            {{!-- <button class="favorite" data-id="{{this.id}}">Favorite!</button> --}}
+                            <button class="deleteAlbum" data-id="{{this.id}}">Delete!</button>
+                            {{/dataValues}}
+                        {{/each}}
                     {{else}}
-                    <h1> You should start adding albums to your collection!</h1>
-                    <img src="https://media.giphy.com/media/Ll1rEkDebTIdO/giphy.gif" alt="music gif">
-                    {{/each}}
+                        <h1> You should start adding albums to your collection!</h1>
+                        <img src="https://media.giphy.com/media/Ll1rEkDebTIdO/giphy.gif" alt="music gif">
                     {{/if}}
                 </li>
             </ul>
