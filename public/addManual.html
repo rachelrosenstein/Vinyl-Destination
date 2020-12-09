@@ -59,35 +59,7 @@
     <div class="divider"></div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script type="text/javascript">
-
-        $("#addCollection").on("click", function (event) {
-            event.preventDefault()
-
-            var album = $("#albumInput").val();
-            var artist = $("#artist").val();
-            var summary = $("#summary").val();
-            var imageURL = $("coverArt").val();
-            var newAlbum = $("<li>" + album + "by" + artist + "has been added to your collection" + "</li>");
-            var coverArt = $('<img class="img-fluid mb-3" src ="' + imageURL + '" alt="' + imageURL + ' album cover">')
-            $("#result").append(newAlbum)
-            $("#result").append(coverArt)
-        });
-
-        function addAlbum(newAlbum) {
-            console.log(newAlbum);
-            $.post("/api/album", newAlbum)
-                .then(function () {
-                    window.location.replace("/myCollection");
-                })
-                // If there's an error, log the error
-                .catch(function (err) {
-                    console.log(err);
-                });
-        }
-
-    </script>
-    <!-- <script type="text/javascript" src="js/login.js"></script> -->
+    <script type="text/javascript" src="js/addManual.js"></script>
 </body>
 
 </html>

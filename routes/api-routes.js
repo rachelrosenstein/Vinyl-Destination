@@ -39,6 +39,8 @@ module.exports = function(app) {
             // Look in the database for an album that already matches the mbid from the last.fm API request
             db.Album.findOne({ 
                 where: { 
+                    name: req.body.name,
+                    artist: req.body.artist,
                     mbid: req.body.mbid 
                 } 
             }).then(function(thisAlbum) {
