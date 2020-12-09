@@ -9,10 +9,6 @@ const { REPL_MODE_SLOPPY } = require("repl");
 module.exports = function (app) {
 
     app.get("/", function (req, res) {
-        // If the user already has an account send them to the members page
-        if (req.user) {
-            res.redirect("/myCollection");
-        }
         res.sendFile(path.join(__dirname, "../public/login.html"));
     });
 
@@ -50,52 +46,27 @@ module.exports = function (app) {
     // Here we've add our isAuthenticated middleware to this route.
     // If a user who is not logged in tries to access this route they will be redirected to the signup page
     app.get("/myCollection", isAuthenticated, function (req, res) {
-        const allAlbums = 
-        // return models.Albums
         db.User.findAll({
             where: {
-                email: req.user.email
+                id: req.user.id
             },
-            // include: db.Album
             include: [{
                 model: db.Album,
                 as: "albums",
                 required: false,
-                attributes: ["id", "name"],
+                attributes: ["name", "artist", "imageURL"],
                 through: {
                     model: db.UserAlbums,
                     as: "useralbums",
                     attributes: ["albumID"]
                 }
-                // ,
-                // where: {allAlbums}
             }]
         }).
-        // return res.send({allAlbums});
         then(function (data) {
-            res.render("collection", data);
+            console.log(data[0].albums);
+            res.render("collection", {albums:data[0].albums});
+            // res.json(data[0].albums);
         });
     });
 
 };
-
-// module.exports = function(sequelize, DataTypes) {
-//     var UserAlbum = sequelize.define("UserAlbum", {
-//         userID: {
-//             type: DataTypes.STRING,
-//             allowNull: false
-//         },
-//         albumID: {
-//             type: DataTypes.STRING,
-//             allowNull: false
-//         }/*,
-//         // Marking albums as favorite isn't part of our MVP, but may be added later
-//         isFavorite: {
-//             type: DataTypes.BOOLEAN,
-//             allowNull: false,
-//             defaultValue: false
-//         }*/
-//     });
-
-//     return UserAlbum;
-// };

@@ -25,10 +25,10 @@ module.exports = function(sequelize, DataTypes) {
 
   User.associate = function(models) {
     User.belongsToMany(models.Album, {
-        through: 'UserAlbums',
-        as: 'albums',
-        foreignKey: 'userID',
-        otherKey: 'albumID'
+      through: 'UserAlbum',
+      as: 'albums',
+      foreignKey: 'userID',
+      otherKey: 'albumID'
     });
   };
 
