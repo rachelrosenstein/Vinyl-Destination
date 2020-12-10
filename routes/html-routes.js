@@ -24,6 +24,10 @@ module.exports = function (app) {
         res.sendFile(path.join(__dirname, "../public/signup.html"));
     });
 
+    app.get("/search", function (req, res) {
+        res.sendFile(path.join(__dirname, "../public/search.html"));
+    });
+
     app.get("/addmanual", function (req, res) {
         // If the user isn't logged in, send them to the login page
         if (!req.user) {
