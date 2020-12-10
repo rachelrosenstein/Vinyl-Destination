@@ -98,3 +98,7 @@ margin: auto;
 .results img {
   width: 100%;
 }
+
+#submit {
+  text-align: center;
+}

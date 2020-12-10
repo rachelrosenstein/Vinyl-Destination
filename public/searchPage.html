@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Vinyl Destination</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <h1>Vinyl Destination</h1>
+
+    <div class="container">
+        <div class="row">
+            <!-- Search -->
+            <div class="col-md-8 col-md-offset-2">
+                <h2>Add To Your Collection</h2>
+                <form class="search-bar">
+                    <input id="searchBar" type="text" placeholder="Search for an album to add..." name="search">
+                    <button id="searchBtn"><i class="fa fa-search"></i></button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Search Results (hidden on page load) -->
+        <div id="resultHeading" class="hide row">
+            <!-- Search result heading displays here -->
+        </div>
+        <div id="resultBody" class="hide row">
+            <!-- Search results displays here -->
+        </div>
+
+        <div class="divider2"></div>
+
+        <!-- Link to add albums manually -->
+        <div class="col-md-8 col-md-offset-2">
+            <h4>Can't Find An Album? <a href="/addmanual">Add it manually.</a></h4>
+        </div>
+    </div>
+
+    <div class="divider2"></div>
