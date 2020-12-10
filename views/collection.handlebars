@@ -1,25 +1,33 @@
+<h1>Vinyl Destination</h1>
+
 <div class="container">
     <div class="row">
-        <div class="col-md-12">
-            <ul>
-                <li>
-                    {{#if albums}}
-                        {{#each albums}}
-                            {{#dataValues}}
-                            <h1> {{this.name}} </h1>
-                            <p> {{this.artist}} </p>
-                            <img src="{{this.imageURL}}" alt="{{this.name}}">
-                            {{!-- <button class="favorite" data-id="{{this.id}}">Favorite!</button> --}}
-                            <button class="deleteAlbum" data-id="{{this.id}}">Delete!</button>
-                            {{/dataValues}}
-                        {{/each}}
-                    {{else}}
-                        <h1> You should start adding albums to your collection!</h1>
-                        <img src="https://media.giphy.com/media/Ll1rEkDebTIdO/giphy.gif" alt="music gif">
-                    {{/if}}
-                </li>
-            </ul>
 
+        <div class="col-md-8 col-md-offset-2">
+            <h2>My Collection</h2>
+
+            {{#if albums}}
+                {{#each albums}}
+                {{#dataValues}}
+                    <div style="min-height:200px;">
+                        <hr>
+                        <img style="height:174px;" class="float-right" src="{{this.imageURL}}" alt="{{this.name}} Album Cover">
+                        <div><strong>{{this.name}}</strong></div>
+                        <div><em>by {{this.artist}}</em></div>
+                        <div>{{this.wikiSummary}}</div>
+                        <a href="{{this.streamURL}}"></a>
+                        <button class="stream" data-url="{{this.streamURL}}">Stream on last.fm</button>
+                        {{!-- <button class="favorite" data-id="{{this.id}}">Add to Favorites</button> --}}
+                        <button class="delete" data-id="{{this.id}}">Remove Album</button>
+                    </div>
+                {{/dataValues}}
+                {{/each}}
+            {{else}}
+                <h2>No Albums to Display</h2>
+                <img src="https://media.giphy.com/media/Ll1rEkDebTIdO/giphy.gif" alt="music gif">
+                <h4>Add albums to your collection by <a href="/search">searching last.fm's database</a>,</h4>
+                <h4>or <a href="/addmanual">add album info manually!</a></h4>
+            {{/if}}
         </div>
     </div>
 </div>

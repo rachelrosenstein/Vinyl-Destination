@@ -58,7 +58,7 @@ module.exports = function (app) {
                 model: db.Album,
                 as: "albums",
                 required: false,
-                attributes: ["name", "artist", "imageURL"],
+                attributes: ["id", "name", "artist", "streamURL", "imageURL", "wikiSummary"],
                 through: {
                     model: db.UserAlbums,
                     as: "useralbums",
@@ -67,7 +67,6 @@ module.exports = function (app) {
             }]
         }).
         then(function (data) {
-            console.log(data[0].albums);
             res.render("collection", {albums:data[0].albums});
             // res.json(data[0].albums);
         });
