@@ -111,7 +111,7 @@ module.exports = function(app) {
                         })
                         .then(function(data) {
                             res.json(data);
-                        });                            
+                        });
                     })
                 } else {
                     // If mbid isn't null, leave albums alone but delete from useralbums
@@ -126,7 +126,6 @@ module.exports = function(app) {
                     });                    
                 }
             })
-                
         }
     });
 
