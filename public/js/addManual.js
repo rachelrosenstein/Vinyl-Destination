@@ -7,13 +7,6 @@ $("#addCollection").on("click", function (event) {
     const imageURL = $("#coverArt").val();
     const newRecord = $("<li>" + name + " by " + artist + " has been added to your collection" + "</li>");
 
-    const coverArt = $('<img>');
-    coverArt.attr('src', imageURL);
-    coverArt.attr('alt', name)
-
-    $("#result").append(newRecord)
-    $("#result").append(coverArt)
-
     const newAlbum = {
         name: name,
         artist: artist,
