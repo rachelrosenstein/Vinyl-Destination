@@ -9,7 +9,7 @@ const { REPL_MODE_SLOPPY } = require("repl");
 module.exports = function (app) {
 
     app.get("/", function (req, res) {
-        res.sendFile(path.join(__dirname, "../public/login.html"));
+        res.sendFile(path.join(__dirname, "../public/landing.html"));
     });
 
     app.get("/login", function (req, res) {
@@ -48,7 +48,7 @@ module.exports = function (app) {
     });
 
     // Here we've add our isAuthenticated middleware to this route.
-    // If a user who is not logged in tries to access this route they will be redirected to the signup page
+    // If a user who is not logged in tries to access this route they will be redirected to the login page
     app.get("/mycollection", isAuthenticated, function (req, res) {
         db.User.findAll({
             where: {

@@ -106,7 +106,7 @@ function loadAlbum(mbid, artist, album) {
             albumDiv.append(summaryDiv);
         }
 
-        let addButton = $('<button type="button" id="addBtn" class="btn btn-warning">Add To My Collection</button>');
+        let addButton = $('<button type="button" id="addBtn" class="btn btn-success">Add To My Collection</button>');
         addButton.click(function() {
             // In case the wiki section of the response is empty
             let summary = response.album.name + ' by ' + response.album.artist;
