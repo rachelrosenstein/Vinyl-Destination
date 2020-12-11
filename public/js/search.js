@@ -92,21 +92,24 @@ function loadAlbum(mbid, artist, album) {
         albumDiv.append(nameDiv);
         let artistDiv = $('<div style="font-size:20px">' + response.album.artist + '</div>');
         albumDiv.append(artistDiv);
+
         if (response.album.image[2]['#text']) {
-            let albumArt = $('<img class="img-fluid mb-3" src ="' + response.album.image[2]["#text"] + '" alt="' + response.album.name + ' album cover" style="width:75%">')
+            let albumArt = $('<img class="img-fluid mb-3 albumArt" src ="' + response.album.image[2]["#text"] + '" alt="' + response.album.name + ' album cover" style="width:50%">')
             albumDiv.append(albumArt);
         } else {
             let albumArt = $('<img class="img-fluid mb-3" src ="https://via.placeholder.com/164x174/fee500?text=Cover%20Art%20Not%20Found" alt="Cover Art Not Found">')
             albumDiv.append(albumArt);
         }
-        let streamDiv = $('<div><a href="' + response.album.url + '">Stream this album on last.fm</a></div>');
-        albumDiv.append(streamDiv);
+
         if(response.album.wiki) {
             let summaryDiv = $('<div><p>' + response.album.wiki.summary + '</p></div>');
             albumDiv.append(summaryDiv);
         }
+        
+        let streamButton = $('<a href="' + response.album.url + '"><button type="button" id="streamBtn" class="btn btn-primary m-1">Stream This Album On last.fm</button></a>');
+        albumDiv.append(streamButton);
 
-        let addButton = $('<button type="button" id="addBtn" class="btn btn-success">Add To My Collection</button>');
+        let addButton = $('<button type="button" id="addBtn" class="btn btn-success m-1">Add To My Collection</button>');
         addButton.click(function() {
             // In case the wiki section of the response is empty
             let summary = response.album.name + ' by ' + response.album.artist;
