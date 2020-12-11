@@ -19,6 +19,7 @@ body {
 .n{
 background-color: white;
 }
+
 .n1, .n2, .n3, .n4, .n6, .n7 , .nx{
     display: flex;
     align-items: center;
@@ -29,7 +30,7 @@ img {
     border-radius: 50%;
     border: double 0.3em transparent;
     background-image: linear-gradient(white, white), 
-    linear-gradient(to right, rgb(255, 215, 83), rgb(255, 255, 255));
+    linear-gradient(to right, rgb(255, 215, 83), rgb(150, 75, 75));
     background-origin: border-box;
     background-clip: content-box, border-box;
     -webkit-transform: scale(1);
