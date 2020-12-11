@@ -27,8 +27,14 @@
                     <div style="min-height:200px;">
                         <hr>
                         <img style="height:174px;" class="float-right" src="{{this.imageURL}}" alt="{{this.name}} Album Cover">
-                        <div><strong>{{this.name}}</strong></div>
-                        <div><em>by {{this.artist}}</em></div>
+                        <div>
+                            {{!-- {{#if this.isFavorite}}
+                                <i class="fas fa-heart"></i>
+                            {{#else}}
+                                <i class="far fa-heart"></i>
+                            {{/if}} --}}
+                            <strong>{{this.name}}</strong>
+                        </div>                        <div><em>by {{this.artist}}</em></div>
                         <div>{{this.wikiSummary}}</div>
                         <button class="stream btn btn-primary" data-url="{{this.streamURL}}">Stream on last.fm</button>
                         {{!-- <button class="favorite btn btn-info" data-id="{{this.id}}">Add to Favorites</button> --}}

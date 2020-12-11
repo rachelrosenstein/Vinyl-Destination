@@ -1,91 +1,93 @@
 $(document).ready(function () {
     const apiKey = "bcc2561c14a397a8ead4a93fa8ca760d";
-    const queryURL = "https://ws.audioscrobbler.com/2.0/?method=tag.gettopalbums&tag=disco&api_key=" + apiKey + "&format=json";
+    const tag = "pop"
+    const queryURL = "https://ws.audioscrobbler.com/2.0/?method=tag.gettopalbums&tag=" + tag + "&api_key=" + apiKey + "&format=json";
 
+    // Make an API call to get the top albums associated with that tag
     $.ajax({
         url: queryURL,
         method: "GET"
     }).then(function (response) {
-        console.log(response)
-
         let newImgDiv = "";
         let bigImg = "";
         let title = "";
         let artist = "";
         let addTo = "";
         let stream = "";
-// $(document).on('load')
 
+        // Create album art circles with click functions for the top seven albums
         for (let i = 0; i <= 7; i++) {
-            // let imgSrc = response.albums.album[i].image[2]["#text"];
             let imgSrc;
-            let res = response.albums.album[i]
+            let res = response.albums.album[i];
         
             if (i === 0) {
-                imgSrc = response.albums.album[i].image[3]["#text"];
+                imgSrc = res.image[3]["#text"];
             } else if (i >= 1) {
-                imgSrc = response.albums.album[i].image[2]["#text"];
+                imgSrc = res.image[2]["#text"];
             }
-            console.log('.n' + i);
-            // console.log(imgSrc);
 
             newImgDiv = '<img src=' + "'" + imgSrc + "'" + '">';
 
             $('.n' + i).append(newImgDiv);
-            //============================================================
+
+            // Click function for album art circles
+            // Displays album info below & creates "Stream" and "Add" buttons
             $(document).on('click', '.n' + i, function (event) {
                 $(".albumTitle").empty();
                 $(".artist").empty();
                 $(".bigImg").empty();
                 $(".twobuttons").empty();
-                // $('.n' + i).removeAttr("id")
-                // $('.n' + i).attr( "id","nx" );
                 
-                console.log(response.albums.album[i].artist.name)
+                title = res.name;
+                artist = res.artist.name;
 
-                title = response.albums.album[i].name;
-                artist = response.albums.album[i].artist.name;
-
-                addTo = $("<button> Add to my collection </button>")
+                // "Add" button
+                addTo = $("<button>Add To My Collection</button>")
                 addTo.attr("type", "button");
-                addTo.attr("class", "addTo btn btn-success");
-                stream = $("<button> stream </button>");
+                addTo.attr("class", "addTo btn btn-success m-1");
+
+                // "Stream" button
+                stream = $("<button>Stream on last.fm</button>");
                 stream.attr("type", "button");
-                stream.attr("class", "stream btn btn-primary");
+                stream.attr("class", "stream btn btn-primary m-1");
                
                 bigImg = $('<img src=' + "'" + imgSrc + "'" + '">');
                 bigImg.attr("class","bigI")
+
                 $(".albumTitle").append(title);
                 $(".artist").append("by "+ artist);
                 $(".bigImg").append(bigImg)
                 $(".twobuttons").append(addTo);
                 $(".twobuttons").append(stream);
 
-                $(".addTo").click(function () {              
+                // Add button click function
+                //   Creates a new album object from the data associated with this album,
+                //   then makes a post request to add the album to the user's collection
+                $(".addTo").click(function () {     
                     const newAlbum = {
                         name: title,
                         artist: artist,
-                        streamURL: response.albums.album[i].url,
+                        streamURL: res.url,
                         imageURL: imgSrc,
                         wikiSummary: title + ' by ' + artist,
-                        mbid: null,
+                        mbid: title,
                     }
                     
                     $.post("/api/album", newAlbum)
                     .then(function() {
                         window.location.replace("/myCollection");
                     })
-                    // If there's an error, log the error
                     .catch(function(err) {
                         console.log(err);
                     });
                 });
 
+                // Stream button click function
+                //   Opens the last.fm streaming url in a new window
                 $(".stream").on("click", function () {
-                    window.open(response.albums.album[i].url);
+                    window.open(res.url);
                 });
             })
-
         }
     })
 })
