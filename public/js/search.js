@@ -14,7 +14,7 @@ $(document).ready(function() {
         $('#resultBody').removeClass('hide');
     
         const album = $('#searchBar').val();
-        const queryURL = 'http://ws.audioscrobbler.com/2.0/?method=album.search&album=' + album + '&api_key=7a06fd430e2d699b85d6ce8f8043cc7e&format=json';
+        const queryURL = 'https://ws.audioscrobbler.com/2.0/?method=album.search&album=' + album + '&api_key=7a06fd430e2d699b85d6ce8f8043cc7e&format=json';
     
         $.ajax({
             url: queryURL,
@@ -68,7 +68,14 @@ $(document).ready(function() {
 // Load an album's full info from the search results
 // Triggered by the click function of the album art image
 function loadAlbum(mbid) {
-    const queryURL = 'http://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=7a06fd430e2d699b85d6ce8f8043cc7e&mbid=' + mbid + '&format=json';
+    let queryURL;
+    if (mbid) {
+        queryURL = 'https://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=7a06fd430e2d699b85d6ce8f8043cc7e&mbid=' + mbid + '&format=json';
+        console.log(queryURL);
+    } else {
+        queryURL = 'https://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=7a06fd430e2d699b85d6ce8f8043cc7e&artist=' + artist + '&album=' + album + '&format=json';
+        console.log(queryURL);
+    }
         
     $.ajax({
         url: queryURL,
