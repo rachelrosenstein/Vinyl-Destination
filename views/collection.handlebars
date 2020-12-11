@@ -30,9 +30,9 @@
                         <div><strong>{{this.name}}</strong></div>
                         <div><em>by {{this.artist}}</em></div>
                         <div>{{this.wikiSummary}}</div>
-                        <button class="stream" data-url="{{this.streamURL}}">Stream on last.fm</button>
-                        {{!-- <button class="favorite" data-id="{{this.id}}">Add to Favorites</button> --}}
-                        <button class="delete" data-id="{{this.id}}">Remove Album</button>
+                        <button class="stream btn btn-primary" data-url="{{this.streamURL}}">Stream on last.fm</button>
+                        {{!-- <button class="favorite btn btn-info" data-id="{{this.id}}">Add to Favorites</button> --}}
+                        <button class="delete btn btn-danger" data-id="{{this.id}}">Remove Album</button>
                     </div>
                 {{/dataValues}}
                 {{/each}}

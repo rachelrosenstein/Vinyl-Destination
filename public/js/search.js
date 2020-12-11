@@ -53,7 +53,9 @@ $(document).ready(function() {
                 let albumArt = $('<img alt="' + searchResults[i].name + ' album cover">')
                 if (searchResults[i].imageURL) albumArt.attr('src', searchResults[i].imageURL);
                 else  albumArt.attr('src', 'https://via.placeholder.com/164x174/fee500?text=Cover%20Art%20Not%20Found');
-                albumArt.click(function() { loadAlbum(searchResults[i].mbid) });
+                albumArt.click(function() {
+                    loadAlbum(searchResults[i].mbid, searchResults[i].artist, searchResults[i].name)
+                });
                 thisDiv.append(albumArt);
     
                 $('#resultBody').append(thisDiv);
@@ -67,7 +69,7 @@ $(document).ready(function() {
 
 // Load an album's full info from the search results
 // Triggered by the click function of the album art image
-function loadAlbum(mbid) {
+function loadAlbum(mbid, artist, album) {
     let queryURL;
     if (mbid) {
         queryURL = 'https://ws.audioscrobbler.com/2.0/?method=album.getinfo&api_key=7a06fd430e2d699b85d6ce8f8043cc7e&mbid=' + mbid + '&format=json';
@@ -99,21 +101,33 @@ function loadAlbum(mbid) {
         }
         let streamDiv = $('<div><a href="' + response.album.url + '">Stream this album on last.fm</a></div>');
         albumDiv.append(streamDiv);
-        let summaryDiv = $('<div><p>' + response.album.wiki.summary + '</p></div>');
-        albumDiv.append(summaryDiv);
+        if(response.album.wiki) {
+            let summaryDiv = $('<div><p>' + response.album.wiki.summary + '</p></div>');
+            albumDiv.append(summaryDiv);
+        }
 
-        let addButton = $('<button type="button" id="addBtn" class="btn btn-warning">Add To My Collection</button>');
+        let addButton = $('<button type="button" id="addBtn" class="btn btn-success">Add To My Collection</button>');
         addButton.click(function() {
-            let summary = response.album.wiki.summary;
-            const index = summary.indexOf("<");
-            summary = summary.substring(0,index);
+            // In case the wiki section of the response is empty
+            let summary = response.album.name + ' by ' + response.album.artist;
+            if(response.album.wiki) {
+                summary = response.album.wiki.summary;
+                const index = summary.indexOf("<");
+                summary = summary.substring(0,index);
+            }
+
+            // In case there's no mbid
+            let mbid = response.album.name;
+            if(response.album.mbid) {
+                mbid = response.album.mbid;
+            }
             const newAlbum = {
                 name: response.album.name,
                 artist: response.album.artist,
                 streamURL: response.album.url,
                 imageURL: response.album.image[2]['#text'],
                 wikiSummary: summary,
-                mbid: response.album.mbid
+                mbid: mbid
             }
 
             addAlbum(newAlbum);
