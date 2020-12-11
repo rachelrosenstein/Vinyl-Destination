@@ -15,7 +15,7 @@ module.exports = function (app) {
     app.get("/login", function (req, res) {
         // If the user already has an account send them to the members page
         if (req.user) {
-            res.redirect("/myCollection");
+            res.redirect("/mycollection");
         }
         res.sendFile(path.join(__dirname, "../public/login.html"));
     });
@@ -31,7 +31,7 @@ module.exports = function (app) {
     app.get("/addmanual", function (req, res) {
         // If the user isn't logged in, send them to the login page
         if (!req.user) {
-            res.redirect("/login.html");
+            res.redirect("/login");
         }
         res.sendFile(path.join(__dirname, "../public/addManual.html"));
     });
@@ -49,7 +49,7 @@ module.exports = function (app) {
 
     // Here we've add our isAuthenticated middleware to this route.
     // If a user who is not logged in tries to access this route they will be redirected to the signup page
-    app.get("/myCollection", isAuthenticated, function (req, res) {
+    app.get("/mycollection", isAuthenticated, function (req, res) {
         db.User.findAll({
             where: {
                 id: req.user.id
@@ -67,7 +67,11 @@ module.exports = function (app) {
             }]
         }).
         then(function (data) {
-            res.render("collection", {albums:data[0].albums});
+            resultsArray = data[0].albums;
+
+            resultsArray.sort((a,b) => b.id - a.id);
+            
+            res.render("collection", {albums:resultsArray});
             // res.json(data[0].albums);
         });
     });
