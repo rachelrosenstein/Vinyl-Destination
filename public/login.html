@@ -5,9 +5,14 @@
     <title>Vinyl Destination</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Bootstrap, Bootswatch & FontAwesome -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/lumen/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+    
+    <!-- Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
 </head>
 
@@ -32,8 +37,8 @@
     <!-- Login Form -->
     <div class="container">
         <div class="row">
-            <div class="col-md-6 col-md-offset-3">
-                <h2>Login</h2>
+            <div class="col">
+                <h4>Log in to view or add to your collection!</h4>
                 <form class="login">
                     <div class="form-row">
                         <div class="form-group col-xs-6">
@@ -42,7 +47,7 @@
                         <div class="form-group col-xs-6">
                             <input type="password" class="form-control col" id="password-input" placeholder="Password">
                         </div>
-                        <button type="submit" id="submit" class="btn btn-default">Login</button>
+                        <button type="submit" id="submit" class="btn btn-info">Login</button>
                         <label for="submit">Not registered yet? Sign up <a href="/signup">here</a>!</label>
                     </div>
                 </form>
