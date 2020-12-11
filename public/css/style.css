@@ -52,12 +52,12 @@ h4 {
 }
 
 body {
-  background-image: url("https://image.freepik.com/free-photo/vinyl-records-yellow-background_23-2147926840.jpg"), url("https://image.freepik.com/free-photo/vinyl-records-yellow-background_23-2147926840.jpg");
+  /* background-image: url("https://image.freepik.com/free-photo/vinyl-records-yellow-background_23-2147926840.jpg"), url("https://image.freepik.com/free-photo/vinyl-records-yellow-background_23-2147926840.jpg");
   background-repeat: no-repeat, repeat;
-  background-color:white;
-  /* background-image: url("https://i.pinimg.com/564x/03/05/1c/03051ca3a068ae4a00f51543614c799e.jpg");
+  background-color:white; */
+  background-image: url("https://i.pinimg.com/564x/03/05/1c/03051ca3a068ae4a00f51543614c799e.jpg");
   background-size: cover;
-  background-color:black; */
+  background-color:black;
   background-attachment: fixed;
   font-family: 'Syne', sans-serif;
 }

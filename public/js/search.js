@@ -144,8 +144,6 @@ function loadAlbum(mbid, artist, album) {
 
 // Triggered by the click funtion of #addBtn
 function addAlbum(newAlbum) {
-    console.log(newAlbum);
-
     $.post("/api/album", newAlbum)
     .then(function() {
         window.location.replace("/myCollection");
