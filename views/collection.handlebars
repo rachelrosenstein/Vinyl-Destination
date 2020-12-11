@@ -1,9 +1,24 @@
 <h1>Vinyl Destination</h1>
+<div class='row'>
+    <div class='col-sm-3'>
+        <h3><a href='/'>Home</a></h3>
+    </div>
+    <div class='col-sm-3'>
+        <h3><a href='/mycollection'>My Collection</a></h3>
+    </div>
+    <div class='col-sm-3'>
+        <h3><a href='/search'>Search</a></h3>
+    </div>
+    <div class='col-sm-3'>
+        <h3><a href='/logout'>Log Out</a></h3>
+    </div>
+</div>
+<div class='divider3'></div>
 
 <div class="container">
     <div class="row">
 
-        <div class="col-md-8 col-md-offset-2">
+        <div class="col-12 col-offset-2">
             <h2>My Collection</h2>
 
             {{#if albums}}
@@ -15,15 +30,16 @@
                         <div><strong>{{this.name}}</strong></div>
                         <div><em>by {{this.artist}}</em></div>
                         <div>{{this.wikiSummary}}</div>
-                        <a href="{{this.streamURL}}"></a>
                         <button class="stream" data-url="{{this.streamURL}}">Stream on last.fm</button>
                         {{!-- <button class="favorite" data-id="{{this.id}}">Add to Favorites</button> --}}
                         <button class="delete" data-id="{{this.id}}">Remove Album</button>
                     </div>
                 {{/dataValues}}
                 {{/each}}
+                <h4>Add more albums to your collection by <a href="/search">searching last.fm's database</a>,</h4>
+                <h4>or <a href="/addmanual">add album info manually!</a></h4>
             {{else}}
-                <h2>No Albums to Display</h2>
+                <h4>No Albums to Display</h4>
                 <img src="https://media.giphy.com/media/Ll1rEkDebTIdO/giphy.gif" alt="music gif">
                 <h4>Add albums to your collection by <a href="/search">searching last.fm's database</a>,</h4>
                 <h4>or <a href="/addmanual">add album info manually!</a></h4>

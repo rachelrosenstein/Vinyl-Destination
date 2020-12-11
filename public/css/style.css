@@ -19,6 +19,17 @@ h2 {
   margin: auto;
 }
 
+h3 {
+  font-family: 'Permanent Marker', cursive;
+  background-color: white;
+  padding-bottom: 20px;
+  text-align: center;
+  padding-top: 20px;
+  width: 100%;
+  font-size: 25px;
+  margin: auto;
+}
+
 h4 {
   font-family: 'Permanent Marker', cursive;
   background-color: white;
@@ -77,6 +88,10 @@ form.search-bar button {
 .divider2 {
   padding-top: 20px;
   padding-bottom: 10px;
+}
+
+.divider3 {
+  padding-top: 10px;
 }
 
 form.create-form {

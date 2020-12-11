@@ -97,12 +97,15 @@ function loadAlbum(mbid) {
 
         let addButton = $('<button type="button" id="addBtn" class="btn btn-warning">Add To My Collection</button>');
         addButton.click(function() {
+            let summary = response.album.wiki.summary;
+            const index = summary.indexOf("<");
+            summary = summary.substring(0,index);
             const newAlbum = {
                 name: response.album.name,
                 artist: response.album.artist,
                 streamURL: response.album.url,
                 imageURL: response.album.image[2]['#text'],
-                wikiSummary: response.album.wiki.summary,
+                wikiSummary: summary,
                 mbid: response.album.mbid
             }
 
