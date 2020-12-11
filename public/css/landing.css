@@ -1,0 +1,32 @@
+body {
+    background-image: url("https://image.freepik.com/free-photo/vinyl-records-yellow-background_23-2147926840.jpg"), url("https://image.freepik.com/free-photo/vinyl-records-yellow-background_23-2147926840.jpg");
+    background-repeat: no-repeat, repeat;
+    background-color:white;
+    background-attachment: fixed;
+    font-family: 'Syne', sans-serif;
+  }
+.n{
+background-color: white;
+}
+.n1, .n2, .n3, .n4, .n6, .n7 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+img {
+    border-radius: 50%;
+    border: double 0.3em transparent;
+    background-image: linear-gradient(white, white), 
+    linear-gradient(to right, rgb(255, 215, 83), rgb(255, 255, 255));
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+}
+img.nx{
+    border-radius: 50%;
+    border: double 0.3em transparent;
+    background-image: linear-gradient(white, white), 
+    linear-gradient(to right, rgb(255, 133, 32), rgb(255, 215, 83));
+    background-origin: border-box;
+    background-clip: content-box, border-box; 
+}
