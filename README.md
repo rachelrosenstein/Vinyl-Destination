@@ -17,9 +17,9 @@
 https://github.com/rachelrosenstein/Vinyl-Destination
 
 ## Link to the Deployed Application
+https://vinyl-destination.herokuapp.com/
 
-
- ![](public/assets/img/landing.jpg)
+ ![](public/assets/img/home.jpg)
 
 ## Description
  A full-stack application. An Album collection developed using MySQL, Node, Express, Handlebars, sequelize and Passport (Pull out all the stops!). Following the MVC design pattern; using Node and Sequelize to query and route data in the app, javaScript and Handlebars to generate HTML and Passport to authenticate users loging in.
@@ -31,7 +31,7 @@ https://github.com/rachelrosenstein/Vinyl-Destination
  A simple web application that allows the user to create an account and start a collection of their records, search, stream and add albums, click 'ADD TO MY COLLECTION' button and add it to a database, dynamically creating an HTML file and displaying the information to the user. 
 
 ## Contributing
- Dan O'Nei, Rachel Rosenstein, Roman Mazzei.
+ Dan O'Neil, Rachel Rosenstein, Roman Mazzei.
 
 ## Tests
  None
@@ -49,5 +49,5 @@ For any questions you can find the constributors on Github:
 > GitHub https://github.com/mazzeiroman
       
 ### Credits
-© 2020 Dan O'Nei, Rachel Rosenstein, Roman Mazzei.      
+© 2020 Dan O'Neil, Rachel Rosenstein, Roman Mazzei.      
       
