@@ -62,17 +62,32 @@ module.exports = function (app) {
                 through: {
                     model: db.UserAlbums,
                     as: "useralbums",
-                    attributes: ["albumID"]
+                    attributes: ["albumID", "isFavorite", "updatedAt"]
                 }
             }]
         }).
         then(function (data) {
-            resultsArray = data[0].albums;
-
-            resultsArray.sort((a,b) => b.id - a.id);
+            resultsArray = [];
+            
+            for (let i = 0; i < data[0].albums.length; i++) {
+                const album = {
+                    id: data[0].albums[i].id,
+                    name: data[0].albums[i].name,
+                    artist: data[0].albums[i].artist,
+                    streamURL: data[0].albums[i].name,
+                    imageURL: data[0].albums[i].imageURL,
+                    wikiSummary: data[0].albums[i].wikiSummary,
+                    albumID: data[0].albums[i].useralbums.albumID,
+                    isFavorite: data[0].albums[i].useralbums.isFavorite, 
+                    updatedAt: data[0].albums[i].useralbums.updatedAt
+                }
+                resultsArray.push(album);
+            }
+            
+            resultsArray.sort((a,b) => b.updatedAt - a.updatedAt);
+            resultsArray.sort((a,b) => b.isFavorite - a.isFavorite);
             
             res.render("collection", {albums:resultsArray});
-            // res.json(data[0].albums);
         });
     });
 

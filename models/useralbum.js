@@ -7,13 +7,12 @@ module.exports = function(sequelize, DataTypes) {
         albumID: {	
             type: DataTypes.STRING,	
             allowNull: false	
-        }/*,	
-        // Marking albums as favorite isn't part of our MVP, but may be added later	
+        },	
         isFavorite: {	
             type: DataTypes.BOOLEAN,	
             allowNull: false,	
             defaultValue: false	
-        }*/	
+        }
     });	
 
     return UserAlbum;	
