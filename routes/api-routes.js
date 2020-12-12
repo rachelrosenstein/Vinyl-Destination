@@ -50,8 +50,8 @@ module.exports = function(app) {
                     db.Album.create(req.body).then(function(newAlbum) {
                         db.UserAlbum.create({
                             userID: req.user.id,
-                            albumID: newAlbum.id/*,
-                            isFavorite: false*/
+                            albumID: newAlbum.id,
+                            isFavorite: false
                         }).then(function() {
                             res.json(newAlbum);
                         });
@@ -129,9 +129,7 @@ module.exports = function(app) {
         }
     });
 
-    /*
-    // Update an album's relationship to this user
-    // (this will be used to favorite and un-favorite albums)
+    // Update an album's relationship to this user (Favorite)
     app.put("/api/album", function(req, res) {
         if (!req.user) {
             // No user is logged in, send back an empty object
@@ -150,7 +148,6 @@ module.exports = function(app) {
             });
         }        
     });
-    */
 
     // Get the user's collection to be displayed on the front end
     app.get("/api/collection", function(req, res) {
@@ -170,7 +167,6 @@ module.exports = function(app) {
         }
     });
 
-    /*
     // Get the user's favorites to be displayed on the front end
     app.get("/api/favorites", function(req, res) {
         if (!req.user) {
@@ -189,5 +185,4 @@ module.exports = function(app) {
         })
         }
     });
-    */
 };
