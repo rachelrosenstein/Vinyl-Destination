@@ -61,16 +61,31 @@ $(document).ready(function () {
                 $(".twobuttons").append(addTo);
                 $(".twobuttons").append(stream);
 
-                $(".addTo").on("click", function () {
-                    window.location.replace("/login");
+                $(".addTo").click(function () {              
+                    const newAlbum = {
+                        name: title,
+                        artist: artist,
+                        streamURL: response.albums.album[i].url,
+                        imageURL: imgSrc,
+                        wikiSummary: title + ' by ' + artist,
+                        mbid: null,
+                    }
+                    
+                    $.post("/api/album", newAlbum)
+                    .then(function() {
+                        window.location.replace("/myCollection");
+                    })
+                    // If there's an error, log the error
+                    .catch(function(err) {
+                        console.log(err);
+                    });
                 });
+
                 $(".stream").on("click", function () {
-                    window.location.replace(response.albums.album[i].url);
+                    window.open(response.albums.album[i].url);
                 });
             })
 
         }
     })
 })
-
-
